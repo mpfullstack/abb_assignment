@@ -54,6 +54,7 @@ class FeatureContent extends Component {
             if( control.key === "position" ) {
                 accumulator = _.reduce(control.value, function(accumulator, position, key) {
                     accumulator.data.push({
+                        key: feature.name + key,
                         name: _.upperFirst(key),
                         dev: position.dev,
                         devout: position.devout,
@@ -63,6 +64,7 @@ class FeatureContent extends Component {
                 }, accumulator);
             } else {
                 accumulator.data.push({
+                    key: feature.name + control.key,
                     name: _.upperFirst(control.key),
                     dev: control.dev,
                     devout: control.devout,
@@ -72,7 +74,7 @@ class FeatureContent extends Component {
             return accumulator;
         }, {
             columns: [
-                { title:"Control", dataIndex:"name"},
+                {title:"Control", dataIndex:"name"},
                 {title:"Dev", dataIndex:"dev"},
                 {title:"Dev Out Tot", dataIndex: "devout"},
                 {title:"", dataIndex:"quality", render: (text, record) => {

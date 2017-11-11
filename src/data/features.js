@@ -115,9 +115,25 @@ function updateFeatures(features) {
         feature.quality = QUALITIES[random(0,QUALITIES.length-1)];
         feature.controls = _.map(feature.controls, function(control, index) {
             if( control.key === "position" ) {
+                control.value.x = {
+                    dev: random(1,100),
+                    devout: random(1,100),
+                    quality: QUALITIES[random(0,QUALITIES.length-1)]
+                }
+                control.value.y = {
+                    dev: random(1,100),
+                    devout: random(1,100),
+                    quality: QUALITIES[random(0,QUALITIES.length-1)]
+                }
+                control.value.z = {
+                    dev: random(1,100),
+                    devout: random(1,100),
+                    quality: QUALITIES[random(0,QUALITIES.length-1)]
+                }
             } else {
                 control.dev = random(1,100);
                 control.devout = random(1,100);
+                control.quality = QUALITIES[random(0,QUALITIES.length-1)]
             }
             return control;
         });
