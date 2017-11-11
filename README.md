@@ -24,3 +24,6 @@ npm install or yarn install
 npm start or yarn start
 
 ## TODO
+
+Adapt code to work with a backend to receive notification with data of a new piece.
+Get global feature quality based individual quality controls.
