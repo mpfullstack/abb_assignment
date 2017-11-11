@@ -19,18 +19,17 @@ const actions = {
 };
 
 const initState = new Map({
-    features: features
+    features: features,
+    pieces: 0
 });
 
 export { initState, actions };
 export default function featuresReducer(state = initState, action) {
     switch (action.type) {
         case actions.REFRESH_FEATURES:
-            if( action.features.length )
-                return state
-                    .set('features', action.features);
-            else
-                return state;
+            return state
+                .set('features', action.features)
+                .set('pieces', state.get('pieces') + 1);
         default:
             return state;
     }
